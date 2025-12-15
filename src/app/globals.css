@@ -3,10 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-}
-
 @font-face {
   font-family: "Montserrat";
   src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
@@ -86,9 +82,33 @@
   font-style: normal;
 }
 
+:root {
+  --background: #ffffff;
+  --primary: #D41C12;
+  --secondary: #FEF01D;
+}
+
 @theme inline {
   --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --font-montserrat: "Montserrat", sans-serif;
   --font-montserrat-alternates: "Montserrat Alternates", sans-serif;
   --font-inter: "Inter", sans-serif;
+}
+
+/* Mobile Drawer Animation */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
 }

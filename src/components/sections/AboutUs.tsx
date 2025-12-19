@@ -70,7 +70,7 @@ const AboutUs = () => {
                 <div
                     className="w-[300px] lg:w-[450px] xl:w-[582.5px] h-[390px] overflow-hidden rounded-[15px] relative z-10 -translate-x-[45%]"
                     style={{
-                        clipPath: 'polygon(0 0, 100% 14%, 100% 89%, 0% 100%);'
+                        clipPath: 'polygon(0 0, 100% 14%, 100% 89%, 0% 100%)'
                     }}
                 >
                     {images.map((image, index) => (
@@ -89,7 +89,7 @@ const AboutUs = () => {
                 <div
                     className="w-[400px] lg:w-[550px] xl:w-[649px] h-[473px] overflow-hidden rounded-[15px] bg-[#FFD6D4] absolute translate-x-[40%] z-0 flex items-center justify-center pl-18"
                     style={{
-                        clipPath: 'polygon(0 14%, 100% 0, 100% 100%, 0 89%);'
+                        clipPath: 'polygon(0 14%, 100% 0, 100% 100%, 0 89%)'
                     }}
                 >
                     <div className="text-left max-w-[450px]">
@@ -112,7 +112,7 @@ const AboutUs = () => {
                 <div
                     className="w-full h-[390px] overflow-hidden rounded-[15px] relative z-10"
                     style={{
-                        clipPath: 'polygon(50% 0%, 100% 0, 100% 35%, 100% 70%, 79% 83%, 50% 100%, 23% 84%, 0% 70%, 0% 35%, 0 0);'
+                        clipPath: 'polygon(50% 0%, 100% 0, 100% 35%, 100% 70%, 79% 83%, 50% 100%, 23% 84%, 0% 70%, 0% 35%, 0 0)'
                     }}
                 >
                     {images.map((image, index) => (

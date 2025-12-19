@@ -67,7 +67,7 @@ const Products = () => {
     useEffect(() => {
         const itemsPerView = {
             mobile: 1,
-            tablet: 2,
+            tablet: 1,
             desktop: 3,
         };
 
@@ -97,7 +97,7 @@ const Products = () => {
                 {/* Navigation Buttons */}
                 <button
                     onClick={handlePrevious}
-                    className='absolute left-0 top-1/2 -translate-y-[90%] -translate-x-16 z-10 w-12 h-12 rounded-full 
+                    className='absolute left-0 top-1/2 -translate-y-[90%] -translate-x-2 min-[1440px]:-translate-x-16 z-60 w-12 h-12 rounded-full 
             bg-black/10 border border-black/30 backdrop-blur-sm
             shadow-[inset_0_1px_0px_rgba(0,0,0,0.75),0_0_9px_rgba(0,0,0,0.2),0_3px_8px_rgba(0,0,0,0.15)]
             hover:bg-black/20 
@@ -118,7 +118,7 @@ const Products = () => {
 
                 <button
                     onClick={handleNext}
-                    className='absolute right-0 top-1/2 -translate-y-[90%] translate-x-16 z-10 w-12 h-12 rounded-full 
+                    className='absolute right-0 top-1/2 -translate-y-[90%] -translate-x-2 min-[1440px]:translate-x-16 z-60 w-12 h-12 rounded-full 
             bg-black/10 border border-black/30 backdrop-blur-sm
             shadow-[inset_0_1px_0px_rgba(0,0,0,0.75),0_0_9px_rgba(0,0,0,0.2),0_3px_8px_rgba(0,0,0,0.15)]
             hover:bg-black/20 
@@ -138,7 +138,7 @@ const Products = () => {
                 </button>
 
                 {/* Carousel Track */}
-                <div className='overflow-hidden max-w-[1200px] relative'>
+                <div className='overflow-hidden max-w-[300px] sm:max-w-[500px] lg:max-w-[1000px] xl:max-w-[1200px] relative'>
                     {/* Left Gradient */}
                     <div className='absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-white to-transparent z-10 pointer-events-none' />
 
@@ -152,7 +152,6 @@ const Products = () => {
                         }}
                     >
                         {categoriesData.map((category, index) => {
-                            // Determine if this item is the center/focused item
                             const isCenterItem = index === currentIndex;
 
                             return (

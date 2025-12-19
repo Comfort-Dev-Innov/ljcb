@@ -53,13 +53,13 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
   if (!isOpen || !category) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
+    <div className="fixed inset-0 z-99 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
       <div className="relative bg-white rounded-[20px] shadow-xl w-full max-w-[650px] max-h-[92vh] flex flex-col animate-modal-pop">
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-2">
           <div className="flex items-center gap-2">
             {category.icon && <category.icon className="text-3xl text-primary" />}
-            <h2 className="text-xl md:text-[24px] font-bold font-inter">
+            <h2 className="text-[18px] sm:text-xl md:text-[24px] font-bold font-inter">
               {category.title}
             </h2>
           </div>
@@ -105,7 +105,7 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
         <div className="flex-1 overflow-y-auto px-6 pt-2 pb-6">
           <div className="border border-[#ADADAD] rounded-[10px] overflow-hidden">
             <div className="bg-[#EFEFEF] px-4 py-2 border-b border-[#ADADAD]">
-              <h3 className="font-semibold text-gray-700 font-inter">Product Name</h3>
+              <h3 className="max-sm:text-[14px] font-semibold text-gray-700 font-inter">Product Name</h3>
             </div>
             <div className="divide-y divide-[#ADADAD]">
               {currentProducts.length > 0 ? (
@@ -113,7 +113,7 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
                   <button
                     key={product.id}
                     onClick={() => handleProductClick(product)}
-                    className={`w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors font-inter ${
+                    className={`w-full max-sm:text-[14px] text-left px-4 py-2 hover:bg-gray-50 transition-colors font-inter ${
                       effectiveCurrentProduct?.id === product.id
                         ? 'bg-primary/10 text-primary font-semibold border-l-4 border-primary'
                         : 'text-gray-700'
@@ -123,7 +123,7 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
                   </button>
                 ))
               ) : (
-                <div className="px-4 py-8 text-center text-gray-500 font-inter">
+                <div className="max-sm:text-[14px] px-4 py-8 text-center text-gray-500 font-inter">
                   No products found matching your search.
                 </div>
               )}
@@ -171,7 +171,7 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
                   <button
                     key={page}
                     onClick={() => handlePageChange(page)}
-                    className={`px-3 py-1 rounded font-inter transition-colors ${
+                    className={`px-3 py-1 max-sm:text-[14px] rounded font-inter transition-colors ${
                       currentPage === page
                         ? 'bg-primary text-white'
                         : 'hover:bg-gray-100 text-gray-700'

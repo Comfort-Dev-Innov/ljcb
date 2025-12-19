@@ -100,14 +100,14 @@ const HeroSection = () => {
               <motion.h1 
                 variants={textVariants}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="text-[64px] font-inter font-black text-white whitespace-pre-line leading-20"
+                className="max-md:text-center text-[40px] md:text-[50px] lg:text-[64px] font-inter font-black text-white md:whitespace-pre-line leading-auto lg:leading-20"
               >
                 {slides[currentSlide].title}
               </motion.h1>
               <motion.p 
                 variants={textVariants}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="font-inter text-[20px] text-white whitespace-pre-line leading-auto"
+                className="max-md:text-center font-inter text-[16px] md:text-[18px] lg:text-[20px] text-white md:whitespace-pre-line leading-auto"
               >
                 {slides[currentSlide].description}
               </motion.p>
@@ -119,7 +119,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="max-w-[300px] flex items-center gap-4"
+            className="max-w-[300px] max-md:justify-center max-md:max-w-full flex items-center gap-4"
           >
             <motion.span 
               key={`current-${currentSlide}`}
@@ -167,11 +167,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
+            className='max-md:justify-center max-md:max-w-full max-md:flex max-md:w-full'
           >
             <GlassButton
               text="Inquire Now! →"
               onClick={() => console.log('clicked')}
-              className='self-start'
+              className='self-start text-[16px]! md:text-[18px]! lg:text-[20px]!'
             />
           </motion.div>
         </div>

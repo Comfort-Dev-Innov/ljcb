@@ -45,7 +45,7 @@ const Header = () => {
                 ease: [0.6, 0.05, 0.01, 0.9],
                 delay: 0.2 
             }}
-            className="flex items-center justify-between max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0!"
+            className="relative z-50 flex items-center justify-between max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0!"
         >
             <motion.div 
                 initial={{ x: -50, opacity: 0 }}
@@ -148,7 +148,7 @@ const Header = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="fixed inset-0 z-50 md:hidden"
+                    className="fixed inset-0 z-100 md:hidden"
                 >
                     {/* Backdrop */}
                     <motion.div 

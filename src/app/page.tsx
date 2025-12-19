@@ -38,7 +38,7 @@ export default function LandingPage() {
           <HeroSection />
         </div>
       </div>
-      <div className="relative z-10 px-[40px] flex flex-col gap-[40px]">
+      <div className="relative z-10 flex flex-col gap-[40px]">
         <AboutUs />
       </div>
     </motion.div>

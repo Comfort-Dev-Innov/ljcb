@@ -23,7 +23,6 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
     );
   }, [category, searchQuery]);
 
-  // Get the effective current product (fallback to first if none selected)
   const effectiveCurrentProduct = useMemo(() => {
     if (currentProduct && filteredProducts.some(p => p.id === currentProduct.id)) {
       return currentProduct;
@@ -55,18 +54,18 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
-      <div className="relative bg-white rounded-lg shadow-xl w-full max-w-[650px] max-h-[90vh] flex flex-col animate-fade-in-up">
+      <div className="relative bg-white rounded-[20px] shadow-xl w-full max-w-[650px] max-h-[92vh] flex flex-col animate-modal-pop">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between px-6 pt-6 pb-2">
+          <div className="flex items-center gap-2">
             {category.icon && <category.icon className="text-3xl text-primary" />}
-            <h2 className="text-xl md:text-2xl font-bold font-montserrat">
+            <h2 className="text-xl md:text-[24px] font-bold font-inter">
               {category.title}
             </h2>
           </div>
           <button
             onClick={handleClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors text-2xl leading-none w-8 h-8 flex items-center justify-center"
+            className="text-gray-400 hover:cursor-pointer hover:text-gray-600 transition-colors text-4xl leading-none w-8 h-8 flex items-center justify-center"
             aria-label="Close modal"
           >
             ×
@@ -74,7 +73,7 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
         </div>
 
         {/* Search Input */}
-        <div className="p-6 border-b">
+        <div className="px-6 py-2">
           <div className="relative">
             <input
               type="text"
@@ -84,7 +83,7 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-inter"
+              className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-[20px] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-inter"
             />
             <svg
               className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -103,18 +102,18 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
         </div>
 
         {/* Products List */}
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="border border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 px-4 py-3 border-b border-gray-200">
-              <h3 className="font-semibold text-gray-700 font-montserrat">Product Name</h3>
+        <div className="flex-1 overflow-y-auto px-6 pt-2 pb-6">
+          <div className="border border-[#ADADAD] rounded-[10px] overflow-hidden">
+            <div className="bg-[#EFEFEF] px-4 py-2 border-b border-[#ADADAD]">
+              <h3 className="font-semibold text-gray-700 font-inter">Product Name</h3>
             </div>
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-[#ADADAD]">
               {currentProducts.length > 0 ? (
                 currentProducts.map((product) => (
                   <button
                     key={product.id}
                     onClick={() => handleProductClick(product)}
-                    className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors font-inter ${
+                    className={`w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors font-inter ${
                       effectiveCurrentProduct?.id === product.id
                         ? 'bg-primary/10 text-primary font-semibold border-l-4 border-primary'
                         : 'text-gray-700'
@@ -133,8 +132,8 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
         </div>
 
         {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="p-6 border-t">
+
+          <div className="px-6 pb-6">
             <div className="flex items-center justify-center gap-2">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
@@ -145,7 +144,6 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
               </button>
               
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                // Show first page, last page, current page, and pages around current
                 const showPage =
                   page === 1 ||
                   page === totalPages ||
@@ -193,7 +191,6 @@ const ProductModal = ({ isOpen, onClose, category }: ProductModalProps) => {
               </button>
             </div>
           </div>
-        )}
       </div>
     </div>
   );

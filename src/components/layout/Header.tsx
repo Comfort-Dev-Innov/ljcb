@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { IconType } from 'react-icons'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 import { IoClose, IoHome, IoInformationCircle, IoCall } from "react-icons/io5"
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -36,22 +37,81 @@ const Header = () => {
     }
 
     return (
-        <header className="flex items-center justify-between max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0!">
-            <div className="flex items-center max-lg:gap-[10px]">
-                <div className="w-[60px] sm:w-[80px] lg:w-[109px] h-auto lg:h-[72px]">
+        <motion.header 
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+                duration: 0.8, 
+                ease: [0.6, 0.05, 0.01, 0.9],
+                delay: 0.2 
+            }}
+            className="flex items-center justify-between max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0!"
+        >
+            <motion.div 
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ 
+                    duration: 0.8, 
+                    ease: [0.6, 0.05, 0.01, 0.9],
+                    delay: 0.4 
+                }}
+                className="flex items-center lg:gap-[10px]"
+            >
+                <motion.div 
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ 
+                        duration: 0.8, 
+                        ease: [0.6, 0.05, 0.01, 0.9],
+                        delay: 0.5 
+                    }}
+                    className="w-[60px] sm:w-[80px] lg:w-[88px] h-auto lg:h-[72px]"
+                >
                     <Image src="/assets/images/logo.png" alt="LJCB Philippines Inc." width={109} height={72} className="w-full h-full object-contain" />
-                </div>
-                <h1 className="text-[14px] sm:text-[16px] font-montserrat-alternates font-bold text-white">
+                </motion.div>
+                <motion.h1 
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                        duration: 0.6, 
+                        delay: 0.7 
+                    }}
+                    className="text-[14px] sm:text-[16px] font-montserrat-alternates font-bold text-white"
+                >
                     LJCB Philippines <br />
                     Incorporated
-                </h1>
-            </div>
+                </motion.h1>
+            </motion.div>
             <div className="hidden md:block">
                 <nav>
-                    <ul className="flex gap-[10px]">
+                    <motion.ul 
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: {},
+                            visible: {
+                                transition: {
+                                    staggerChildren: 0.1,
+                                    delayChildren: 0.6
+                                }
+                            }
+                        }}
+                        className="flex gap-[10px]"
+                    >
                         {menuItems.map((item) => (
-                            <li
+                            <motion.li
                                 key={item.href}
+                                variants={{
+                                    hidden: { y: -20, opacity: 0 },
+                                    visible: { 
+                                        y: 0, 
+                                        opacity: 1,
+                                        transition: {
+                                            duration: 0.6,
+                                            ease: [0.6, 0.05, 0.01, 0.9]
+                                        }
+                                    }
+                                }}
                                 className="px-[12px] lg:px-[25px] py-[10px] lg:py-[16px] last:pr-0 relative"
                             >
                                 <a
@@ -60,41 +120,100 @@ const Header = () => {
                                 >
                                     {item.label}
                                 </a>
-                            </li>
+                            </motion.li>
                         ))}
-                    </ul>
+                    </motion.ul>
                 </nav>
             </div>
-            <div className="block md:hidden">
+            <motion.div 
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                    duration: 0.5, 
+                    delay: 0.8,
+                    ease: [0.6, 0.05, 0.01, 0.9]
+                }}
+                className="block md:hidden"
+            >
                 <RxHamburgerMenu 
                     className="text-white text-[23px] cursor-pointer"
                     onClick={toggleDrawer}
                 />
-            </div>
+            </motion.div>
 
             {/* Mobile Drawer */}
             {isDrawerOpen && (
-                <div className="fixed inset-0 z-50 md:hidden">
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="fixed inset-0 z-50 md:hidden"
+                >
                     {/* Backdrop */}
-                    <div 
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
                         onClick={closeDrawer}
                     />
                     
                     {/* Drawer */}
-                    <div className="absolute right-0 top-0 h-full w-[280px] bg-white/20 backdrop-blur-xl shadow-2xl border-l border-white/30 animate-slide-in-right">
-                        <div className="flex justify-end p-6">
+                    <motion.div 
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ 
+                            type: 'spring', 
+                            stiffness: 300, 
+                            damping: 30 
+                        }}
+                        className="absolute right-0 top-0 h-full w-[280px] bg-white/20 backdrop-blur-xl shadow-2xl border-l border-white/30"
+                    >
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2 }}
+                            className="flex justify-end p-6"
+                        >
                             <IoClose 
                                 className="text-white text-[28px] cursor-pointer hover:text-primary hover:scale-110 transition-all"
                                 onClick={closeDrawer}
                             />
-                        </div>
+                        </motion.div>
                         <nav className="px-6">
-                            <ul className="space-y-2">
+                            <motion.ul 
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                    hidden: {},
+                                    visible: {
+                                        transition: {
+                                            staggerChildren: 0.08,
+                                            delayChildren: 0.1
+                                        }
+                                    }
+                                }}
+                                className="space-y-2"
+                            >
                                 {menuItems.map((item) => {
                                     const Icon = item.icon
                                     return (
-                                        <li key={item.href}>
+                                        <motion.li 
+                                            key={item.href}
+                                            variants={{
+                                                hidden: { x: 50, opacity: 0 },
+                                                visible: { 
+                                                    x: 0, 
+                                                    opacity: 1,
+                                                    transition: {
+                                                        duration: 0.5,
+                                                        ease: [0.6, 0.05, 0.01, 0.9]
+                                                    }
+                                                }
+                                            }}
+                                        >
                                             <a
                                                 href={item.href}
                                                 onClick={closeDrawer}
@@ -105,15 +224,15 @@ const Header = () => {
                                                     {item.label}
                                                 </span>
                                             </a>
-                                        </li>
+                                        </motion.li>
                                     )
                                 })}
-                            </ul>
+                            </motion.ul>
                         </nav>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             )}
-        </header>
+        </motion.header>
     );
 };
 

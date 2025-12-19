@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutUs from "@/components/sections/AboutUs";
 import Products from "@/components/sections/Products";
+import Clients from "@/components/sections/Clients";
 
 export default function LandingPage() {
   return (
@@ -42,6 +43,7 @@ export default function LandingPage() {
       <div className="relative z-10 flex flex-col gap-[40px]">
         <AboutUs />
         <Products />
+        <Clients />
       </div>
     </motion.div>
   );

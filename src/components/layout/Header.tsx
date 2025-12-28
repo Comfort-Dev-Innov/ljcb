@@ -18,7 +18,7 @@ type MenuItem = {
 }
 
 const menuItems: MenuItem[] = [
-    { label: 'Home', href: '#', icon: IoHome },
+    { label: 'Home', href: '#hero', icon: IoHome },
     { label: 'About Us', href: '#about', icon: IoInformationCircle, },
     { label: 'Products', href: '#products', icon: AiFillProduct },
     { label: 'Clients', href: '#clients', icon: FaUserTag },

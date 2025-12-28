@@ -13,7 +13,7 @@ const ContactUs = () => {
     message: '',
   })
   return (
-    <section className='relative flex flex-col gap-[40px] md:gap-[80px] bg-primary overflow-hidden py-[50px] w-full'>
+    <section id="contact" className='relative flex flex-col gap-[40px] md:gap-[80px] bg-primary overflow-hidden py-[50px] w-full'>
       {/* Top Right Pattern */}
       <div className='absolute top-0 right-[-100px] w-[300px] h-[150px] md:w-[450px] md:h-[220px] lg:w-[650px] lg:h-[270px] pointer-events-none' style={{ transform: 'rotate(10.57deg)' }}>
         <Image

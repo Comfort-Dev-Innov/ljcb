@@ -63,6 +63,11 @@
   font-style: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 :root {
   --background: #ffffff;
   --primary: #D41C12;

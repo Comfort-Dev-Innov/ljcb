@@ -78,7 +78,7 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="font-inter relative flex min-h-[1000px] max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0! items-center -mt-[95px]">
+    <div id="hero" className="font-inter relative flex min-h-[1000px] max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0! items-center -mt-[95px]">
       {/* Content */}
       <div className="relative z-2 h-full justify-center items-center w-full">
         <div className="flex flex-col gap-[20px] justify-center">

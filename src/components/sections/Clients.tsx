@@ -77,7 +77,7 @@ const row3Logos = shuffleArray(clientLogos, 3)
 const Clients = () => {
     return (
         <div className='bg-white'>
-            <section className='relative flex flex-col gap-[40px] md:gap-[80px] max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0! py-[50px] w-full'>
+            <section id="clients" className='relative flex flex-col gap-[40px] md:gap-[80px] max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0! py-[50px] w-full'>
                 <Heading title='Clients' description='Businesses That Trust Us' className='pt-[60px]' />
             </section>
             

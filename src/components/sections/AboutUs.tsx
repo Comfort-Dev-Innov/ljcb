@@ -61,7 +61,7 @@ const AboutUs = () => {
     }, [displayedText, isDeleting, currentPhraseIndex])
 
     return (
-        <section className='relative flex flex-col gap-[40px] md:gap-[80px] max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0! py-[50px] w-full'>
+        <section id="about" className='relative flex flex-col gap-[40px] md:gap-[80px] max-w-[1180px] min-[1440px]:max-w-[1660px] mx-auto px-[10px] sm:px-[20px] md:px-[30px] min-[1665px]:px-0! py-[50px] w-full'>
             <Heading title='About Us' description='Who We Are and What We Do' className='pt-[100px]' />
 
             {/* DESKTOP */}

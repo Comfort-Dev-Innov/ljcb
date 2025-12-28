@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Heading from '../base/Heading';
-import ProductModal from '../base/ProductModal';
 import { categoriesData, Category } from '@/data/productsData';
 import Image from 'next/image';
 import GlassButton from '../base/Button';
 
-const Products = () => {
+interface ProductsProps {
+    onCategoryClick: (category: Category) => void;
+}
+
+const Products = ({ onCategoryClick }: ProductsProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [itemsShown, setItemsShown] = useState(3);
 
     const handlePrevious = () => {
@@ -23,13 +24,7 @@ const Products = () => {
 
     const handleCategoryClick = (category: Category, index: number) => {
         setCurrentIndex(index);
-        setSelectedCategory(category);
-        setIsModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-        setTimeout(() => setSelectedCategory(null), 300);
+        onCategoryClick(category);
     };
 
     // Calculate scroll index based on current index and items shown
@@ -195,13 +190,6 @@ const Products = () => {
                     />
                 </div>
             </div>
-
-            {/* Product Modal */}
-            <ProductModal
-                isOpen={isModalOpen}
-                onClose={handleCloseModal}
-                category={selectedCategory}
-            />
         </section>
     )
 }

@@ -1,5 +1,6 @@
 'use client'
 import { motion } from "framer-motion"
+import { useState } from 'react'
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutUs from "@/components/sections/AboutUs";
@@ -8,8 +9,23 @@ import Clients from "@/components/sections/Clients";
 import ContactUs from "@/components/sections/ContactUs";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/base/BackToTop";
+import ProductModal from "@/components/base/ProductModal";
+import { Category } from '@/data/productsData';
 
 export default function LandingPage() {
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (category: Category) => {
+    setSelectedCategory(category);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedCategory(null), 300);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -45,12 +61,17 @@ export default function LandingPage() {
       </div>
       <div className="relative z-10 flex flex-col gap-[40px]">
         <AboutUs />
-        <Products />
+        <Products onCategoryClick={handleOpenModal} />
         <Clients />
         <ContactUs/>
       </div>
       <Footer />
       <BackToTop />
+      <ProductModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        category={selectedCategory}
+      />
     </motion.div>
   );
 }

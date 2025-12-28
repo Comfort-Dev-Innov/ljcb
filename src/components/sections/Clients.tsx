@@ -21,7 +21,7 @@ const clientLogos = [
     '/assets/images/logos/jomara-earthmoving.jpg',
     '/assets/images/logos/jomara-konstruct.jpg',
     '/assets/images/logos/kd.jpg',
-    '/assets/images/logos/leyte-tv-coop.jpg',
+    '/assets/images/logos/leyte-1v-coop.jpg',
     '/assets/images/logos/mactan-steel.png',
     '/assets/images/logos/mosbeau.png',
     '/assets/images/logos/moto-industrial.png',
@@ -70,7 +70,6 @@ const shuffleArray = (array: string[], seed: number) => {
     return shuffled
 }
 
-// Create different shuffled versions for each row
 const row1Logos = shuffleArray(clientLogos, 1)
 const row2Logos = shuffleArray(clientLogos, 2)
 const row3Logos = shuffleArray(clientLogos, 3)

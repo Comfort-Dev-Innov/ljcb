@@ -5,6 +5,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import AboutUs from "@/components/sections/AboutUs";
 import Products from "@/components/sections/Products";
 import Clients from "@/components/sections/Clients";
+import ContactUs from "@/components/sections/ContactUs";
 
 export default function LandingPage() {
   return (
@@ -44,6 +45,7 @@ export default function LandingPage() {
         <AboutUs />
         <Products />
         <Clients />
+        <ContactUs/>
       </div>
     </motion.div>
   );

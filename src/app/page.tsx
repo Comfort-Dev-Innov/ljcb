@@ -6,6 +6,7 @@ import AboutUs from "@/components/sections/AboutUs";
 import Products from "@/components/sections/Products";
 import Clients from "@/components/sections/Clients";
 import ContactUs from "@/components/sections/ContactUs";
+import Footer from "@/components/layout/Footer";
 
 export default function LandingPage() {
   return (
@@ -47,6 +48,7 @@ export default function LandingPage() {
         <Clients />
         <ContactUs/>
       </div>
+      <Footer />
     </motion.div>
   );
 }
